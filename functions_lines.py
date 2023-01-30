@@ -4,13 +4,12 @@ import re
 
 class FunctionLinesCommand(sublime_plugin.TextCommand):
 	def run(self, edit):
-		view = sublime.active_window().active_view()
 		raw_lst = self.view.substr(sublime.Region(0, self.view.size()))
 		lines = raw_lst.splitlines()
 
 		a = 0
 		while a <= len(lines):
-			view.erase_phantoms("ee")
+			self.view.erase_phantoms("42_function_lines_total")
 			a += 1
 		i = 0
 		while i < len(lines):
@@ -40,5 +39,5 @@ class FunctionLinesCommand(sublime_plugin.TextCommand):
 							line = lines[a]
 							chara += len(line) + 1
 							a += 1
-						view.add_phantom("ee", sublime.Region(chara - 1, self.view.size()), html, sublime.LAYOUT_BLOCK)
+						self.view.add_phantom("42_function_lines_total", sublime.Region(chara - 1, self.view.size()), html, sublime.LAYOUT_BLOCK)
 			i += 1
