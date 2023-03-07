@@ -30,7 +30,7 @@ class FunctionLinesCommand(sublime_plugin.TextCommand):
 						size += 1
 					start += 1
 				if size > 25:
-					html = '<bodystyle="color:#bf2525;font-style:italic;margin-left:10px;">Functionlines: ' + str(size) + '</body>'
+					html = '<body style="color:#bf2525;font-style:italic;margin-left:10px;">Function lines: ' + str(size) + '</body>'
 				else:
-					html = '<bodystyle="color:#8d9090;font-style:italic;margin-left:10px;">Functionlines: ' + str(size) + '</body>'
+					html = '<body style="color:#8d9090;font-style:italic;margin-left:10px;">Function lines: ' + str(size) + '</body>'
 				self.view.add_phantom("42_function_lines_total",sublime.Region(i - 1, self.view.size()), html, sublime.LAYOUT_BLOCK)
