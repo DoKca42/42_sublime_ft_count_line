@@ -11,7 +11,7 @@ class FunctionLinesCommand(sublime_plugin.TextCommand):
 		while a <= len(lines):
 			self.view.erase_phantoms("42_function_lines_total")
 			a += 1
-		all_res_regex = re.finditer(r"[a-zA-Z_][a-zA-Z_0-9]*\((?:[^()]|\((?:[^()]|\((?:[^()]+|\([^()]*\))*\))*\))*\)", txt)
+		all_res_regex = re.finditer(r"[a-zA-Z_][a-zA-Z_0-9]*\((?:[^();]|\((?:[^();]+|\([^();]*\))*\))*(?:\)|(?=;))", txt)
 		for res_regex in all_res_regex:
 			if txt[res_regex.end()] == '\n' and txt[res_regex.end() + 1] == '{':
 				i = res_regex.end() + 2
